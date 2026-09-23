@@ -194,13 +194,6 @@
             line-height: 1.1;
         }
 
-        .degree {
-            font-size: 0.8rem;
-            color: var(--text-sub);
-            letter-spacing: 1px;
-            margin-top: 4px;
-        }
-
         /* COUNTDOWN LUXURY */
         .countdown-grid {
             display: grid;
@@ -236,7 +229,6 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 10px;
-            margin-bottom: 15px;
         }
 
         .gallery-item {
@@ -259,36 +251,6 @@
             height: 100%;
             object-fit: cover;
             display: block;
-        }
-
-        .upload-box {
-            background: rgba(0, 0, 0, 0.2);
-            border: 1px dashed var(--glass-border);
-            border-radius: 12px;
-            padding: 15px;
-            margin-top: 15px;
-        }
-
-        .file-label {
-            background: transparent;
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-primary);
-            padding: 6px 14px;
-            font-size: 0.75rem;
-            border-radius: 20px;
-            cursor: pointer;
-            display: inline-block;
-            margin: 3px;
-            transition: all 0.3s;
-        }
-
-        .file-label:hover {
-            background: var(--gold-primary);
-            color: #000;
-        }
-
-        input[type="file"] {
-            display: none;
         }
 
         /* MAPS CONTAINER */
@@ -490,12 +452,10 @@
         <!-- MAIN CONTENT -->
         <!-- HOME / HERO -->
         <section id="home" class="glass-card" style="margin-top: 40px;">
-            <p style="font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;" class="gold-text">Mappabotting (Pernikahan Mandar)</p>
-            <h1 class="couple-name gold-text" style="margin: 15px 0 5px 0;">Jasri Yusuf</h1>
-            <p class="degree">S.Tr.IP</p>
+            <p style="font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;" class="gold-text">The Wedding of</p>
+            <h1 class="couple-name gold-text" style="margin: 15px 0 10px 0;">Jasri Yusuf</h1>
             <p style="font-family: 'Pinyon Script', cursive; font-size: 2.2rem; color: var(--gold-primary); margin: 10px 0;">&</p>
-            <h1 class="couple-name gold-text" style="margin-bottom: 5px;">Ainun Wafiyah Ashar</h1>
-            <p class="degree">S.Tr.IP, M.Si</p>
+            <h1 class="couple-name gold-text" style="margin-bottom: 10px;">Ainun Wafiyah Ashar</h1>
         </section>
 
         <!-- WAKTU & LOKASI -->
@@ -571,15 +531,6 @@
                     </video>
                 </div>
             </div>
-
-            <div class="upload-box">
-                <p style="font-size: 0.75rem; color: var(--text-sub); margin-bottom: 8px;">Upload / Tambah Foto & Video Galeri:</p>
-                <label for="upload-photo" class="file-label"><i class="fa-solid fa-image"></i> Pilih Foto</label>
-                <input type="file" id="upload-photo" accept="image/*" onchange="previewImage(event)">
-
-                <label for="upload-video" class="file-label"><i class="fa-solid fa-video"></i> Pilih Video</label>
-                <input type="file" id="upload-video" accept="video/*" onchange="previewVideo(event)">
-            </div>
         </section>
 
         <!-- RSVP & UCAPAN DOA -->
@@ -626,7 +577,7 @@
             <div class="bank-card">
                 <div class="bank-title">BANK BRI</div>
                 <div class="account-number" id="rek-bri">004701059543506</div>
-                <p style="font-size: 0.75rem; color: var(--text-sub);">a.n Jasri Yusuf / Ainun Wafiyah</p>
+                <p style="font-size: 0.75rem; color: var(--text-sub);">a.n Jasri Yusuf</p>
                 <button class="btn-luxury" style="padding: 8px 20px; font-size: 0.7rem; margin-top: 12px;" onclick="copyRekening()">
                     <i class="fa-regular fa-copy"></i> Salin Rekening
                 </button>
@@ -717,25 +668,7 @@
             });
         }
 
-        // 5. UPLOAD PREVIEW FOTO & VIDEO GALERI
-        function previewImage(event) {
-            const reader = new FileReader();
-            reader.onload = function() {
-                document.getElementById('img-preview-1').src = reader.result;
-            };
-            if(event.target.files[0]) reader.readAsDataURL(event.target.files[0]);
-        }
-
-        function previewVideo(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const videoNode = document.getElementById('video-preview');
-                videoNode.src = URL.createObjectURL(file);
-                videoNode.load();
-            }
-        }
-
-        // 6. SUBMIT RSVP FORM
+        // 5. SUBMIT RSVP FORM
         function submitRsvp(event) {
             event.preventDefault();
             const name = document.getElementById('name').value;

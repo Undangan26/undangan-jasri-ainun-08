@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Undangan Pernikahan - Jasri & Ainun</title>
+    <!-- Font & FontAwesome Icon -->
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700&family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --bg-color: #120006;
+            --primary-gold: #e5c158;
+            --secondary-gold: #c59b27;
+            --maroon-dark: #2b000a;
+            --maroon-accent: #4a0413;
+            --text-light: #fceee3;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-light);
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background: linear-gradient(180deg, var(--maroon-dark) 0%, var(--bg-color) 100%);
+            min-height: 100vh;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.8);
+            border-left: 1px solid rgba(229, 193, 88, 0.2);
+            border-right: 1px solid rgba(229, 193, 88, 0.2);
+        }
+
+        /* ===== DEKORASI BUNGA ADAT MANDAR ===== */
+        .floral-top-left, .floral-bottom-right {
+            position: absolute;
+            width: 150px;
+            height: 150px;
+            pointer-events: none;
+            z-index: 5;
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        
+        /* Elemen Bunga Emas / Motif Saqbe Mandar Frame */
+        .floral-corner {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            opacity: 0.85;
+            pointer-events: none;
+            z-index: 2;
+        }
+        .corner-tl { top: 0; left: 0; border-top: 3px solid var(--primary-gold); border-left: 3px solid var(--primary-gold); margin: 15px; }
+        .corner-tr { top: 0; right: 0; border-top: 3px solid var(--primary-gold); border-right: 3px solid var(--primary-gold); margin: 15px; }
+        .corner-bl { bottom: 0; left: 0; border-bottom: 3px solid var(--primary-gold); border-left: 3px solid var(--primary-gold); margin: 15px; }
+        .corner-br { bottom: 0; right: 0; border-bottom: 3px solid var(--primary-gold); border-right: 3px solid var(--primary-gold); margin: 15px; }
+
+        /* ===== EFEK MEMBUKA UNDANGAN (DOOR / ENVELOPE) ===== */
+        #cover-overlay {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 480px;
+            height: 100vh;
+            background: linear-gradient(135deg, #3d000e, #140005);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: transform 1.2s cubic-bezier(0.77, 0, 0.175, 1);
+            border-left: 1px solid var(--primary-gold);
+            border-right: 1px solid var(--primary-gold);
+        }
+
+        #cover-overlay.open {
+            transform: translate(-50%, -100%);
+        }
+
+        .cover-title {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .mempelai-cover {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.8rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(229, 193, 88, 0.5);
+            margin: 15px 0;
+        }
+
+        .btn-open {
+            background: linear-gradient(45deg, var(--secondary-gold), var(--primary-gold));
+            color: #1a0006;
+            border: none;
+            padding: 12px 30px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border-radius: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(229, 193, 88, 0.4);
+            margin-top: 25px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-open:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(229, 193, 88, 0.6);
+        }
+
+        /* ===== KONTEN UTAMA ===== */
+        .content {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .header-mandar {
+            font-family: 'Cinzel', serif;
+            font-size: 0.9rem;
+            color: var(--primary-gold);
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .bride-groom {
+            margin: 30px 0;
+        }
+
+        .name {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.3rem;
+            color: var(--primary-gold);
+            line-height: 1.2;
+        }
+
+        .title-degree {
+            font-family: 'Poppins', sans-serif;
+            font-size: 0.85rem;
+            color: #d1d1d1;
+            margin-top: 5px;
+        }
+
+        .ampersand {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2rem;
+            color: #fff;
+            margin: 15px 0;
+        }
+
+        /* ===== COUNTDOWN TIMER ===== */
+        .timer-container {
+            background: rgba(74, 4, 19, 0.4);
+            border: 1px solid var(--primary-gold);
+            border-radius: 12px;
+            padding: 20px 10px;
+            margin: 30px 0;
+            backdrop-filter: blur(5px);
+        }
+
+        .timer-title {
+            font-size: 0.85rem;
+            color: var(--primary-gold);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .countdown {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .time-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .time-box span:first-child {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .time-box span:last-child {
+            font-size: 0.7rem;
+            color: var(--primary-gold);
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* ===== ACCORDION / KONTEN GALERI & REKENING ===== */
+        .card {
+            background: rgba(20, 0, 5, 0.6);
+            border: 1px solid rgba(229, 193, 88, 0.3);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+        }
+
+        .card-title {
+            font-family: 'Cinzel', serif;
+            color: var(--primary-gold);
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(229, 193, 88, 0.3);
+            padding-bottom: 8px;
+        }
+
+        /* Foto & Video Upload Display */
+        .media-container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .photo-frame {
+            width: 100%;
+            height: 250px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--primary-gold);
+            background: #000;
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-frame {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 2px solid var(--primary-gold);
+            background: #000;
+        }
+
+        .video-frame video {
+            width: 100%;
+            display: block;
+        }
+
+        .bank-info {
+            background: #ffffff;
+            color: #333;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .bank-logo {
+            font-weight: 800;
+            color: #00529C;
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .rekening-number {
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            color: #111;
+            margin: 5px 0;
+        }
+
+        .btn-copy {
+            background: #00529C;
+            color: white;
+            border: none;
+            padding: 6px 15px;
+            font-size: 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 5px;
+        }
+
+        /* Dynamic Media Input Section */
+        .upload-section {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px dashed rgba(229, 193, 88, 0.4);
+            border-radius: 6px;
+        }
+
+        .upload-section input {
+            display: none;
+        }
+
+        .btn-upload {
+            background: transparent;
+            color: var(--primary-gold);
+            border: 1px solid var(--primary-gold);
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            margin-top: 5px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: #888;
+            padding: 20px 0;
+            border-top: 1px solid rgba(229, 193, 88, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Bunga / Frame Pojok Adat -->
+        <div class="corner-tl floral-corner"></div>
+        <div class="corner-tr floral-corner"></div>
+        <div class="corner-bl floral-corner"></div>
+        <div class="corner-br floral-corner"></div>
+
+        <!-- EFEK MEMBUKA UNDANGAN (COVER / ENVELOPE) -->
+        <div id="cover-overlay">
+            <div class="cover-title">WALIMATUL 'URSY</div>
+            <p style="font-size: 0.85rem; color: #ccc;">Suku Mandar</p>
+            
+            <div class="mempelai-cover">Jasri & Ainun</div>
+            
+            <p style="font-size: 0.8rem; color: var(--primary-gold); margin-top: 10px;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
+            <p style="font-size: 0.9rem; font-weight: 600; margin-bottom: 15px;">Tamu Undangan</p>
+
+            <button class="btn-open" onclick="openInvitation()">
+                <i class="fa-solid fa-envelope-open"></i> Buka Undangan
+            </button>
+        </div>
+
+        <!-- KONTEN UTAMA UNDANGAN -->
+        <div class="content">
+            <div class="header-mandar">Pernikahan Adat Mandar</div>
+            <p style="font-size: 0.8rem; font-style: italic; color: #ddd; margin-bottom: 25px;">
+                "Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu isteri-isteri dari meksudmu sendiri..."
+            </p>
+
+            <!-- NAMA MEMPELAI -->
+            <div class="bride-groom">
+                <div class="name">Jasri Yusuf</div>
+                <div class="title-degree">S.Tr.IP</div>
+                
+                <div class="ampersand">&</div>
+                
+                <div class="name">Ainun Wafiyah Ashar</div>
+                <div class="title-degree">S.Tr.IP, M.Si</div>
+            </div>
+
+            <!-- ACARA & LOKASI -->
+            <div class="card">
+                <div class="card-title">Resepsi Pernikahan</div>
+                <p style="font-size: 0.9rem; margin-bottom: 8px;"><i class="fa-regular fa-calendar-check" style="color: var(--primary-gold);"></i> <strong>Minggu, 08 November 2026</strong></p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px;"><i class="fa-regular fa-clock" style="color: var(--primary-gold);"></i> 13.30 WITA s.d Selesai</p>
+                <p style="font-size: 0.85rem; line-height: 1.4;">
+                    <i class="fa-solid fa-location-dot" style="color: var(--primary-gold);"></i> <strong>Kediaman (RUMAH)</strong><br>
+                    Jl. Labora Lingkungan Teppo
+                </p>
+            </div>
+
+            <!-- HITUNG MUNDUR (COUNTDOWN) -->
+            <div class="timer-container">
+                <div class="timer-title">Menuju Hari Bahagia</div>
+                <div class="countdown">
+                    <div class="time-box">
+                        <span id="days">00</span>
+                        <span>Hari</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="hours">00</span>
+                        <span>Jam</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="minutes">00</span>
+                        <span>Menit</span>
+                    </div>
+                    <div class="time-box">
+                        <span id="seconds">00</span>
+                        <span>Detik</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- GALERI FOTO DAN VIDEO -->
+            <div class="card">
+                <div class="card-title">Momen Bahagia</div>
+                <div class="media-container">
+                    <!-- Frame Foto -->
+                    <div class="photo-frame">
+                        <img id="img-preview" src="https://via.placeholder.com/400x300/2b000a/e5c158?text=Foto+Mempelai" alt="Foto Mempelai">
+                    </div>
+                    
+                    <!-- Frame Video -->
+                    <div class="video-frame">
+                        <video id="video-preview" controls poster="https://via.placeholder.com/400x200/2b000a/e5c158?text=Video+Mempelai">
+                            <source src="" type="video/mp4">
+                            Browser Anda tidak mendukung tag video.
+                        </video>
+                    </div>
+                </div>
+
+                <!-- Opsi Upload Foto & Video Langsung -->
+                <div class="upload-section">
+                    <p>Ubah Foto & Video Digital:</p>
+                    <label for="upload-photo" class="btn-upload"><i class="fa-solid fa-image"></i> Pilih Foto</label>
+                    <input type="file" id="upload-photo" accept="image/*" onchange="previewImage(event)">
+
+                    <label for="upload-video" class="btn-upload"><i class="fa-solid fa-video"></i> Pilih Video</label>
+                    <input type="file" id="upload-video" accept="video/*" onchange="previewVideo(event)">
+                </div>
+            </div>
+
+            <!-- REKENING / TANDA KASIH -->
+            <div class="card">
+                <div class="card-title">Tanda Kasih</div>
+                <p style="font-size: 0.8rem;">Doa Restu Anda merupakan karunia yang sangat berarti bagi kami. Namun jika Anda ingin memberi hadiah, dapat melalui:</p>
+                
+                <div class="bank-info">
+                    <div class="bank-logo">BANK BRI</div>
+                    <div class="rekening-number" id="rek-bri">004701059543506</div>
+                    <div style="font-size: 0.8rem; color: #555;">a.n Jasri Yusuf / Ainun Wafiyah</div>
+                    <button class="btn-copy" onclick="copyRekening()"><i class="fa-regular fa-copy"></i> Salin No. Rekening</button>
+                </div>
+            </div>
+
+            <footer>
+                Mandar Cultural Digital Invitation &copy; 2026<br>
+                Jasri Yusuf, S.Tr.IP & Ainun Wafiyah Ashar, S.Tr.IP, M.Si
+            </footer>
+        </div>
+    </div>
+
+    <!-- AUDIO BACKSOUND (Opsional) -->
+    <audio id="bg-music" loop>
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=wedding-114275.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // 1. EFEK MEMBUKA UNDANGAN
+        function openInvitation() {
+            document.getElementById('cover-overlay').classList.add('open');
+            var audio = document.getElementById('bg-music');
+            audio.play().catch(function(error) {
+                console.log("Autoplay ditolak oleh browser");
+            });
+        }
+
+        // 2. HITUNG MUNDUR (COUNTDOWN TIMER) HINGGA 08 NOVEMBER 2026
+        const targetDate = new Date("November 8, 2026 13:30:00").getTime();
+
+        const countdownFunction = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
+            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.querySelector(".timer-container").innerHTML = "<div class='timer-title'>Acara Telah Berlangsung</div>";
+            }
+        }, 1000);
+
+        // 3. SALIN NOMOR REKENING BRI
+        function copyRekening() {
+            const rekText = document.getElementById("rek-bri").innerText;
+            navigator.clipboard.writeText(rekText).then(function() {
+                alert("Nomor Rekening BRI berhasil disalin!");
+            }, function(err) {
+                alert("Gagal menyalin nomor rekening.");
+            });
+        }
+
+        // 4. PREVIEW UPLOAD FOTO & VIDEO DIGITAL
+        function previewImage(event) {
+            const reader = new FileReader();
+            reader.onload = function() {
+                const output = document.getElementById('img-preview');
+                output.src = reader.result;
+            };
+            if(event.target.files[0]) {
+                reader.readAsDataURL(event.target.files[0]);
+            }
+        }
+
+        function previewVideo(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const videoNode = document.getElementById('video-preview');
+                const fileURL = URL.createObjectURL(file);
+                videoNode.src = fileURL;
+                videoNode.load();
+            }
+        }
+    </script>
+</body>
+</html>

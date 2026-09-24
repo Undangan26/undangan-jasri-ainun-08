@@ -89,7 +89,7 @@
             }
         }
 
-        /* COVER OPENER OVERLAY DENGAN BACKGROUND FOTO (PERINTAH 3) */
+        /* COVER OPENER OVERLAY DENGAN BACKGROUND FOTO */
         #gate-overlay {
             position: fixed;
             top: 0;
@@ -140,7 +140,7 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* RUANG NAMA MEMPELAI */
+        /* RUANG NAMA MEMPELAI OVERLAY */
         .hero-title-container {
             width: 100%;
             padding: 10px 10px;
@@ -174,7 +174,7 @@
             margin-bottom: 15px;
         }
 
-        /* KOTAK COUNTDOWN DESAIN SESUAI SCREENSHOT */
+        /* KOTAK COUNTDOWN */
         .royal-countdown-grid {
             display: flex;
             justify-content: center;
@@ -242,11 +242,12 @@
             -webkit-backdrop-filter: blur(12px);
             border: 1px solid var(--glass-border);
             border-radius: 20px;
-            padding: 30px 20px;
-            margin: 25px 20px;
+            padding: 30px 15px;
+            margin: 25px 15px;
             text-align: center;
             position: relative;
             box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+            overflow: hidden;
         }
 
         .section-title {
@@ -268,14 +269,22 @@
             margin: 8px auto 0 auto;
         }
 
-        /* FORMAT NAMA MEMPELAI TANPA SPASI KEBAWAH (PERINTAH 1) */
+        /* FORMAT NAMA MEMPELAI DENGAN SKALA PRESISI MEMANJANG (PERINTAH 1) */
         .couple-name {
             font-family: 'Pinyon Script', cursive;
-            font-size: 3.2rem;
+            font-size: 3rem;
             line-height: 1.2;
             white-space: nowrap;
             display: block;
             width: 100%;
+            text-align: center;
+            padding: 0 5px;
+        }
+
+        /* Khusus Penyesuaian Ruang Nama Panjang "Ainun Wafiyah Ashar" */
+        .couple-name.long-name {
+            font-size: 2.3rem;
+            letter-spacing: -0.5px;
         }
 
         /* GALERI FOTO & VIDEO GRID */
@@ -313,7 +322,7 @@
             display: block;
         }
 
-        /* LIGHTBOX MODAL UNTUK PERINTAH 4 */
+        /* LIGHTBOX MODAL */
         .lightbox-modal {
             position: fixed;
             top: 0;
@@ -512,7 +521,16 @@
                 right: 20px;
             }
             .couple-name {
-                font-size: 2.5rem;
+                font-size: 2.6rem;
+            }
+            .couple-name.long-name {
+                font-size: 1.95rem;
+            }
+        }
+
+        @media (max-width: 380px) {
+            .couple-name.long-name {
+                font-size: 1.7rem;
             }
         }
     </style>
@@ -528,7 +546,7 @@
             <i class="fa-solid fa-compact-disc" id="music-icon" style="font-size: 1.3rem;"></i>
         </div>
 
-        <!-- GATE / COVER OPENER OVERLAY DENGAN LATAR FOTO (PERINTAH 3) -->
+        <!-- GATE / COVER OPENER OVERLAY DENGAN LATAR FOTO -->
         <div id="gate-overlay">
             <div class="badge-capsule">THE ROYAL WEDDING OF</div>
             
@@ -571,8 +589,8 @@
             <p style="font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;" class="gold-text">The Wedding of</p>
             <h1 class="couple-name gold-text" style="margin: 15px 0 10px 0;">Jasri Yusuf</h1>
             <p style="font-family: 'Pinyon Script', cursive; font-size: 2.2rem; color: var(--gold-primary); margin: 10px 0;">&</p>
-            <!-- NAMA AINUN WAFIYAH ASHAR DISUSUN LENGKAP MEMANJANG (PERINTAH 1) -->
-            <h1 class="couple-name gold-text" style="margin-bottom: 10px;">Ainun Wafiyah Ashar</h1>
+            <!-- NAMA AINUN WAFIYAH ASHAR MEMANJANG TANPA BREAK KEDALAM RUANG YANG CUKUP -->
+            <h1 class="couple-name long-name gold-text" style="margin-bottom: 10px;">Ainun Wafiyah Ashar</h1>
         </section>
 
         <!-- WAKTU & LOKASI -->
@@ -622,7 +640,7 @@
             </div>
         </section>
 
-        <!-- GALERI FOTO & VIDEO INTERAKTIF LIGHTBOX (PERINTAH 4) -->
+        <!-- GALERI FOTO & VIDEO INTERAKTIF LIGHTBOX -->
         <section id="gallery" class="glass-card">
             <h2 class="section-title gold-text">Galeri Momen Bahagia</h2>
             <p style="font-size: 0.72rem; color: var(--text-sub); margin-bottom: 15px;">Klik foto untuk memperbesar tampilan</p>
@@ -718,7 +736,7 @@
         </nav>
     </div>
 
-    <!-- AUDIO BACKSOUND "TAHTA HATIKU - FAJAR NOOR" (PERINTAH 2) -->
+    <!-- AUDIO BACKSOUND "TAHTA HATIKU - FAJAR NOOR" -->
     <audio id="bg-music" preload="auto" loop style="display:none;">
         <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=tahta-hatiku-wedding.mp3" type="audio/mpeg">
     </audio>
@@ -809,7 +827,7 @@
             document.getElementById("seconds").innerText = strSeconds;
         }, 1000);
 
-        // 4. LIGHTBOX PREVIEW FOTO (PERINTAH 4)
+        // 4. LIGHTBOX PREVIEW FOTO
         function openLightbox(src) {
             const lightbox = document.getElementById('lightbox');
             const lightboxImg = document.getElementById('lightbox-img');

@@ -3,21 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Wedding of Jasri & Ainun</title>
+    <title>The Royal Wedding of Jasri & Ainun</title>
     <!-- Google Fonts & FontAwesome -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500;600&family=Pinyon+Script&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            --bg-dark: #08140e;
-            --emerald-dark: #0f261b;
-            --gold-primary: #f3d382;
-            --gold-gradient: linear-gradient(135deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
-            --glass-bg: rgba(15, 38, 27, 0.65);
-            --glass-border: rgba(243, 211, 130, 0.3);
-            --text-light: #f5f5f5;
-            --text-sub: #d1d5db;
+            --bg-dark: #040d08;
+            --emerald-dark: #081a10;
+            --emerald-card: #0c2417;
+            --gold-primary: #f2ce74;
+            --gold-gradient: linear-gradient(135deg, #e6c265, #fef1aa, #c99e32, #fdf4b8, #b88a28);
+            --glass-bg: rgba(8, 26, 16, 0.78);
+            --glass-border: rgba(242, 206, 116, 0.35);
+            --text-light: #f8f8f8;
+            --text-sub: #c3cbcf;
         }
 
         * {
@@ -29,7 +30,7 @@
 
         body {
             font-family: 'Montserrat', sans-serif;
-            background-color: #030806;
+            background-color: #010503;
             color: var(--text-light);
             display: flex;
             justify-content: center;
@@ -42,13 +43,13 @@
         .app-container {
             width: 100%;
             max-width: 480px;
-            background: linear-gradient(180deg, var(--bg-dark) 0%, #020704 100%);
+            background: radial-gradient(circle at top, var(--emerald-dark) 0%, var(--bg-dark) 100%);
             min-height: 100vh;
             position: relative;
-            box-shadow: 0 0 50px rgba(0, 0, 0, 0.9);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.95);
             overflow: hidden;
-            border-left: 1px solid rgba(243, 211, 130, 0.15);
-            border-right: 1px solid rgba(243, 211, 130, 0.15);
+            border-left: 1px solid rgba(242, 206, 116, 0.15);
+            border-right: 1px solid rgba(242, 206, 116, 0.15);
             padding-bottom: 90px;
         }
 
@@ -68,7 +69,7 @@
 
         .petal {
             position: absolute;
-            background: radial-gradient(circle, var(--gold-primary) 0%, rgba(243, 211, 130, 0) 70%);
+            background: radial-gradient(circle, var(--gold-primary) 0%, rgba(242, 206, 116, 0) 70%);
             border-radius: 150% 0 150% 0;
             opacity: 0.5;
             animation: animatePetal 10s linear infinite;
@@ -88,7 +89,7 @@
             }
         }
 
-        /* COVER OPENER ENVELOPE */
+        /* COVER OPENER OVERLAY DENGAN BACKGROUND FOTO (PERINTAH 3) */
         #gate-overlay {
             position: fixed;
             top: 0;
@@ -97,13 +98,14 @@
             width: 100%;
             max-width: 480px;
             height: 100vh;
-            background: radial-gradient(circle, var(--emerald-dark) 0%, var(--bg-dark) 100%);
+            background: linear-gradient(180deg, rgba(3, 10, 6, 0.75) 0%, rgba(4, 13, 8, 0.92) 100%), 
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1000&q=80') center/cover no-repeat;
             z-index: 1000;
             display: flex;
             flex-direction: column;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            padding: 60px 20px 50px 20px;
+            padding: 40px 20px;
             text-align: center;
             transition: all 1.2s cubic-bezier(0.77, 0, 0.175, 1);
             border-left: 1px solid var(--glass-border);
@@ -116,31 +118,110 @@
             pointer-events: none;
         }
 
+        /* BADGE KAPSUL EMAS */
+        .badge-capsule {
+            display: inline-block;
+            border: 1px solid var(--gold-primary);
+            border-radius: 30px;
+            padding: 6px 22px;
+            font-family: 'Cinzel', serif;
+            font-size: 0.68rem;
+            letter-spacing: 4px;
+            color: var(--gold-primary);
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            background: rgba(8, 26, 16, 0.6);
+            box-shadow: 0 0 15px rgba(242, 206, 116, 0.15);
+        }
+
         .gold-text {
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
+        /* RUANG NAMA MEMPELAI */
+        .hero-title-container {
+            width: 100%;
+            padding: 10px 10px;
+            margin: 10px 0 20px 0;
+        }
+
         .mempelai-gate {
-            font-family: 'Pinyon Script', cursive;
+            font-family: 'Pinyon Script', 'Great Vibes', cursive;
             font-size: 3.8rem;
-            line-height: 1;
-            margin: 15px 0;
+            line-height: 1.2;
+            word-spacing: 5px;
+            text-shadow: 0 0 20px rgba(242, 206, 116, 0.25);
+            padding: 5px 0;
+        }
+
+        .wedding-date-subtitle {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.2rem;
+            color: #ececec;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
+
+        .countdown-title-sub {
+            font-family: 'Cinzel', serif;
+            font-size: 0.65rem;
+            letter-spacing: 3px;
+            color: #b5c2ba;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        /* KOTAK COUNTDOWN DESAIN SESUAI SCREENSHOT */
+        .royal-countdown-grid {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            width: 100%;
+            max-width: 380px;
+            margin-bottom: 35px;
+        }
+
+        .royal-count-box {
+            flex: 1;
+            background: linear-gradient(180deg, rgba(12, 36, 23, 0.95) 0%, rgba(4, 13, 8, 0.95) 100%);
+            border: 1px solid rgba(242, 206, 116, 0.4);
+            border-radius: 12px;
+            padding: 12px 0 8px 0;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .royal-count-box .num {
+            font-family: 'Cinzel', serif;
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            line-height: 1.1;
+        }
+
+        .royal-count-box .lbl {
+            font-size: 0.58rem;
+            letter-spacing: 2px;
+            color: var(--text-sub);
+            text-transform: uppercase;
+            margin-top: 6px;
         }
 
         .btn-luxury {
             background: var(--gold-gradient);
-            color: #08140e;
+            color: #040d08;
             border: none;
-            padding: 12px 30px;
-            font-size: 0.85rem;
+            padding: 13px 32px;
+            font-size: 0.8rem;
             font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
             border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 10px 25px rgba(243, 211, 130, 0.3);
+            box-shadow: 0 8px 25px rgba(242, 206, 116, 0.35);
             transition: all 0.3s ease;
             display: inline-flex;
             align-items: center;
@@ -151,7 +232,7 @@
 
         .btn-luxury:hover {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 0 15px 30px rgba(243, 211, 130, 0.5);
+            box-shadow: 0 12px 30px rgba(242, 206, 116, 0.5);
         }
 
         /* GLASSCARD COMPONENT */
@@ -165,7 +246,7 @@
             margin: 25px 20px;
             text-align: center;
             position: relative;
-            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
         }
 
         .section-title {
@@ -187,63 +268,42 @@
             margin: 8px auto 0 auto;
         }
 
-        /* MEMPELAI DETAIL */
+        /* FORMAT NAMA MEMPELAI TANPA SPASI KEBAWAH (PERINTAH 1) */
         .couple-name {
             font-family: 'Pinyon Script', cursive;
             font-size: 3.2rem;
-            line-height: 1.1;
-        }
-
-        /* COUNTDOWN LUXURY */
-        .countdown-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
-            margin-top: 20px;
-        }
-
-        .count-item {
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(243, 211, 130, 0.2);
-            border-radius: 12px;
-            padding: 12px 5px;
-        }
-
-        .count-number {
-            font-family: 'Cinzel', serif;
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--gold-primary);
-        }
-
-        .count-label {
-            font-size: 0.65rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--text-sub);
-            margin-top: 4px;
+            line-height: 1.2;
+            white-space: nowrap;
+            display: block;
+            width: 100%;
         }
 
         /* GALERI FOTO & VIDEO GRID */
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+            gap: 12px;
         }
 
         .gallery-item {
             width: 100%;
-            height: 140px;
+            height: 150px;
             border-radius: 12px;
             overflow: hidden;
             border: 1px solid var(--glass-border);
             background: #000;
             position: relative;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.02);
         }
 
         .gallery-item.full-width {
             grid-column: span 2;
-            height: 220px;
+            height: 230px;
         }
 
         .gallery-item img, .gallery-item video {
@@ -251,6 +311,42 @@
             height: 100%;
             object-fit: cover;
             display: block;
+        }
+
+        /* LIGHTBOX MODAL UNTUK PERINTAH 4 */
+        .lightbox-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.92);
+            z-index: 2000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox-modal.active {
+            display: flex;
+        }
+
+        .lightbox-modal img {
+            max-width: 95%;
+            max-height: 85vh;
+            border-radius: 10px;
+            border: 2px solid var(--gold-primary);
+            box-shadow: 0 0 30px rgba(242, 206, 116, 0.4);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            color: var(--gold-primary);
+            font-size: 2rem;
+            cursor: pointer;
         }
 
         /* MAPS CONTAINER */
@@ -347,7 +443,7 @@
             transform: translateX(-50%);
             width: 100%;
             max-width: 480px;
-            background: rgba(8, 20, 14, 0.9);
+            background: rgba(4, 13, 8, 0.92);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-top: 1px solid var(--glass-border);
@@ -379,12 +475,12 @@
         /* MUSIC CONTROLLER FLOATING */
         .music-btn {
             position: fixed;
-            top: 20px;
+            bottom: 85px;
             right: calc(50% - 220px);
-            width: 38px;
-            height: 38px;
-            background: rgba(15, 38, 27, 0.8);
-            border: 1px solid var(--gold-primary);
+            width: 44px;
+            height: 44px;
+            background: radial-gradient(circle, var(--emerald-dark) 0%, #030a06 100%);
+            border: 2px solid var(--gold-primary);
             border-radius: 50%;
             color: var(--gold-primary);
             display: flex;
@@ -392,29 +488,31 @@
             align-items: center;
             z-index: 950;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+            box-shadow: 0 0 15px rgba(242, 206, 116, 0.4);
+            animation: pulseGlow 2s infinite ease-in-out;
         }
 
-        .music-title-badge {
-            position: fixed;
-            top: 25px;
-            right: calc(50% - 170px);
-            background: rgba(15, 38, 27, 0.85);
-            border: 1px solid var(--glass-border);
-            border-radius: 15px;
-            padding: 4px 12px;
-            font-size: 0.65rem;
-            color: var(--gold-primary);
-            z-index: 940;
-            pointer-events: none;
+        @keyframes pulseGlow {
+            0% { box-shadow: 0 0 8px rgba(242, 206, 116, 0.3); }
+            50% { box-shadow: 0 0 18px rgba(242, 206, 116, 0.7); }
+            100% { box-shadow: 0 0 8px rgba(242, 206, 116, 0.3); }
+        }
+
+        .music-btn.playing i {
+            animation: rotateDisc 4s linear infinite;
+        }
+
+        @keyframes rotateDisc {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         @media (max-width: 480px) {
             .music-btn {
                 right: 20px;
             }
-            .music-title-badge {
-                right: 65px;
+            .couple-name {
+                font-size: 2.5rem;
             }
         }
     </style>
@@ -426,22 +524,40 @@
         <div class="petals-container" id="petals"></div>
 
         <!-- FLOATING MUSIC CONTROL -->
-        <div class="music-title-badge" id="music-badge"><i class="fa-solid fa-music"></i> Tahta Hatiku - Fajar Noor</div>
-        <div class="music-btn" onclick="toggleMusic()">
-            <i class="fa-solid fa-music" id="music-icon"></i>
+        <div class="music-btn" id="music-btn-container" onclick="toggleMusic()">
+            <i class="fa-solid fa-compact-disc" id="music-icon" style="font-size: 1.3rem;"></i>
         </div>
 
-        <!-- GATE / COVER OPENER -->
+        <!-- GATE / COVER OPENER OVERLAY DENGAN LATAR FOTO (PERINTAH 3) -->
         <div id="gate-overlay">
-            <div>
-                <p style="font-size: 0.75rem; letter-spacing: 4px; text-transform: uppercase;" class="gold-text">The Wedding Of</p>
+            <div class="badge-capsule">THE ROYAL WEDDING OF</div>
+            
+            <div class="hero-title-container">
                 <div class="mempelai-gate gold-text">Jasri & Ainun</div>
-                <p style="font-size: 0.75rem; letter-spacing: 2px; color: var(--text-sub);">Pernikahan Adat Suku Mandar</p>
             </div>
 
-            <div style="margin: 30px 0;">
-                <p style="font-size: 0.75rem; color: var(--text-sub); margin-bottom: 8px;">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-                <p style="font-size: 1rem; font-weight: 600; color: #fff;">Tamu Undangan</p>
+            <div class="wedding-date-subtitle">Minggu, 08 November 2026</div>
+
+            <div class="countdown-title-sub">MENGHITUNG HARI MENUJU HARI BAHAGIA</div>
+
+            <!-- KOTAK COUNTDOWN DALAM OVERLAY -->
+            <div class="royal-countdown-grid">
+                <div class="royal-count-box">
+                    <div class="num" id="gate-days">00</div>
+                    <div class="lbl">HARI</div>
+                </div>
+                <div class="royal-count-box">
+                    <div class="num" id="gate-hours">00</div>
+                    <div class="lbl">JAM</div>
+                </div>
+                <div class="royal-count-box">
+                    <div class="num" id="gate-minutes">00</div>
+                    <div class="lbl">MENIT</div>
+                </div>
+                <div class="royal-count-box">
+                    <div class="num" id="gate-seconds">00</div>
+                    <div class="lbl">DETIK</div>
+                </div>
             </div>
 
             <button class="btn-luxury" onclick="openInvitation()">
@@ -455,6 +571,7 @@
             <p style="font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase;" class="gold-text">The Wedding of</p>
             <h1 class="couple-name gold-text" style="margin: 15px 0 10px 0;">Jasri Yusuf</h1>
             <p style="font-family: 'Pinyon Script', cursive; font-size: 2.2rem; color: var(--gold-primary); margin: 10px 0;">&</p>
+            <!-- NAMA AINUN WAFIYAH ASHAR DISUSUN LENGKAP MEMANJANG (PERINTAH 1) -->
             <h1 class="couple-name gold-text" style="margin-bottom: 10px;">Ainun Wafiyah Ashar</h1>
         </section>
 
@@ -484,42 +601,43 @@
             <!-- COUNTDOWN TIMER -->
             <div style="margin-top: 25px;">
                 <p style="font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase;" class="gold-text">Menuju Hari Bahagia</p>
-                <div class="countdown-grid">
-                    <div class="count-item">
-                        <div class="count-number" id="days">00</div>
-                        <div class="count-label">Hari</div>
+                <div class="royal-countdown-grid" style="margin: 15px auto 0 auto;">
+                    <div class="royal-count-box">
+                        <div class="num" id="days">00</div>
+                        <div class="lbl">HARI</div>
                     </div>
-                    <div class="count-item">
-                        <div class="count-number" id="hours">00</div>
-                        <div class="count-label">Jam</div>
+                    <div class="royal-count-box">
+                        <div class="num" id="hours">00</div>
+                        <div class="lbl">JAM</div>
                     </div>
-                    <div class="count-item">
-                        <div class="count-number" id="minutes">00</div>
-                        <div class="count-label">Menit</div>
+                    <div class="royal-count-box">
+                        <div class="num" id="minutes">00</div>
+                        <div class="lbl">MENIT</div>
                     </div>
-                    <div class="count-item">
-                        <div class="count-number" id="seconds">00</div>
-                        <div class="count-label">Detik</div>
+                    <div class="royal-count-box">
+                        <div class="num" id="seconds">00</div>
+                        <div class="lbl">DETIK</div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- GALERI FOTO & VIDEO -->
+        <!-- GALERI FOTO & VIDEO INTERAKTIF LIGHTBOX (PERINTAH 4) -->
         <section id="gallery" class="glass-card">
             <h2 class="section-title gold-text">Galeri Momen Bahagia</h2>
-            
+            <p style="font-size: 0.72rem; color: var(--text-sub); margin-bottom: 15px;">Klik foto untuk memperbesar tampilan</p>
+
             <div class="gallery-grid" id="gallery-grid">
                 <!-- Foto Utama -->
-                <div class="gallery-item full-width">
+                <div class="gallery-item full-width" onclick="openLightbox('https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80')">
                     <img id="img-preview-1" src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=800&q=80" alt="Momen Mempelai 1">
                 </div>
                 
                 <!-- Foto Tambahan -->
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80')">
                     <img id="img-preview-2" src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=600&q=80" alt="Momen Mempelai 2">
                 </div>
-                <div class="gallery-item">
+                <div class="gallery-item" onclick="openLightbox('https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=80')">
                     <img id="img-preview-3" src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=600&q=80" alt="Momen Mempelai 3">
                 </div>
 
@@ -532,6 +650,12 @@
                 </div>
             </div>
         </section>
+
+        <!-- LIGHTBOX MODAL CONTAINER -->
+        <div class="lightbox-modal" id="lightbox" onclick="closeLightbox()">
+            <span class="lightbox-close">&times;</span>
+            <img id="lightbox-img" src="" alt="Full Preview">
+        </div>
 
         <!-- RSVP & UCAPAN DOA -->
         <section id="rsvp" class="glass-card">
@@ -594,9 +718,9 @@
         </nav>
     </div>
 
-    <!-- AUDIO BACKSOUND: Tahta Hatiku - Fajar Noor -->
-    <audio id="bg-music" loop>
-        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=tahta-hatiku-fajar-noor.mp3" type="audio/mpeg">
+    <!-- AUDIO BACKSOUND "TAHTA HATIKU - FAJAR NOOR" (PERINTAH 2) -->
+    <audio id="bg-music" preload="auto" loop style="display:none;">
+        <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=tahta-hatiku-wedding.mp3" type="audio/mpeg">
     </audio>
 
     <script>
@@ -613,10 +737,10 @@
             petalsContainer.appendChild(petal);
         }
 
-        // 2. OPEN INVITATION & PLAY MUSIC (Tahta Hatiku - Fajar Noor)
+        // 2. BACKSOUND MUSIC PLAYER "TAHTA HATIKU"
         let isPlaying = false;
         const music = document.getElementById('bg-music');
-        const musicIcon = document.getElementById('music-icon');
+        const musicContainer = document.getElementById('music-btn-container');
 
         function openInvitation() {
             document.getElementById('gate-overlay').classList.add('opened');
@@ -624,19 +748,32 @@
         }
 
         function playMusic() {
-            music.play().then(() => {
-                isPlaying = true;
-                musicIcon.classList.remove('fa-music-slash');
-                musicIcon.classList.add('fa-music');
-            }).catch(e => console.log("Autoplay blocked"));
+            music.volume = 0.85;
+            let playPromise = music.play();
+            
+            if (playPromise !== undefined) {
+                playPromise.then(() => {
+                    isPlaying = true;
+                    musicContainer.classList.add('playing');
+                }).catch(error => {
+                    console.log("Autoplay ditolak oleh browser, menyiapkan event click.");
+                    isPlaying = false;
+                    musicContainer.classList.remove('playing');
+                    document.body.addEventListener('click', function playOnClick() {
+                        music.play();
+                        isPlaying = true;
+                        musicContainer.classList.add('playing');
+                        document.body.removeEventListener('click', playOnClick);
+                    }, { once: true });
+                });
+            }
         }
 
         function toggleMusic() {
             if (isPlaying) {
                 music.pause();
                 isPlaying = false;
-                musicIcon.classList.remove('fa-music');
-                musicIcon.classList.add('fa-music-slash');
+                musicContainer.classList.remove('playing');
             } else {
                 playMusic();
             }
@@ -654,13 +791,37 @@
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-            document.getElementById("days").innerText = days < 10 ? "0" + days : days;
-            document.getElementById("hours").innerText = hours < 10 ? "0" + hours : hours;
-            document.getElementById("minutes").innerText = minutes < 10 ? "0" + minutes : minutes;
-            document.getElementById("seconds").innerText = seconds < 10 ? "0" + seconds : seconds;
+            const strDays = days < 10 ? "0" + days : days;
+            const strHours = hours < 10 ? "0" + hours : hours;
+            const strMinutes = minutes < 10 ? "0" + minutes : minutes;
+            const strSeconds = seconds < 10 ? "0" + seconds : seconds;
+
+            // Overlay Cover
+            document.getElementById("gate-days").innerText = strDays;
+            document.getElementById("gate-hours").innerText = strHours;
+            document.getElementById("gate-minutes").innerText = strMinutes;
+            document.getElementById("gate-seconds").innerText = strSeconds;
+
+            // Main Content
+            document.getElementById("days").innerText = strDays;
+            document.getElementById("hours").innerText = strHours;
+            document.getElementById("minutes").innerText = strMinutes;
+            document.getElementById("seconds").innerText = strSeconds;
         }, 1000);
 
-        // 4. COPY REKENING BRI
+        // 4. LIGHTBOX PREVIEW FOTO (PERINTAH 4)
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            lightboxImg.src = src;
+            lightbox.classList.add('active');
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').classList.remove('active');
+        }
+
+        // 5. COPY REKENING BRI
         function copyRekening() {
             const rekText = document.getElementById("rek-bri").innerText;
             navigator.clipboard.writeText(rekText).then(() => {
@@ -668,7 +829,7 @@
             });
         }
 
-        // 5. SUBMIT RSVP FORM
+        // 6. SUBMIT RSVP FORM
         function submitRsvp(event) {
             event.preventDefault();
             const name = document.getElementById('name').value;
